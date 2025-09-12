@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FinSearchComp Benchmark</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Plotly for the leaderboard bar chart -->
+  <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+</head>
+<body>
+  <!-- 顶部栏 -->
+  <header class="site-header">
+    <div class="wrap header-wrap">
+      <div class="brand">
+        <h1 class="title">FinSearchComp Benchmark</h1>
+        <p class="subtag">This benchmark evaluates how a pair of model + search tool perform on collecting accurate financial data, for later creating high quality output to user's financial queries</p>
+      </div>
+      <nav class="tabs" role="tablist" aria-label="Sections">
+        <button class="tab active" role="tab" aria-selected="true" aria-controls="panel-overview" id="tab-overview">
+          Benchmark Overview
+        </button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-leaderboard" id="tab-leaderboard">
+          Leaderboard
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 高亮摘要 -->
+  <section class="abstract">
+    <div class="wrap">
+      <div class="abstract-card" role="note" aria-label="Benchmark Abstract">
+        <div class="abstract-badge">Benchmark Abstract</div>
+        <p class="abstract-text">
+          <strong>Accurate financial data is crucial building block for all financial analysis</strong>
+        </p>
+        <p class="abstract-sub">
+          This benchmark evaluates how a pair of model + search tool perform on collecting accurate financial data, for later creating high quality output to user's financial queries
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- 面板一：Benchmark Overview -->
+    <section id="panel-overview" class="panel active" role="tabpanel" aria-labelledby="tab-overview">
+      <div class="page">
+        <section class="main">
+          <article class="card">
+            <div class="hr"></div>
+            <h2>Project Introduction</h2>
+            <p>
+              Open-domain financial search is a foundational skill for financial professionals, serving as the critical first step in creating analytical reports, building valuation models, and making investment decisions.
+            </p>
+            <p>
+              This complex task demands a range of skills, including：<strong>1) retrieving time-sensitive data</strong> <strong>2) finding figures buried in unstructured reports</strong> <strong>3) performing multi-step retrievals with calculation or comparison</strong>.
+            </p>
+            <p>
+              All of this must be done while <strong>correctly navigating complex financial conventions</strong> (e.g., specifying Nominal GDP vs. Real GDP).
+            </p>
+            <p>
+              Before an LLM-based agent can perform sophisticated analysis, it must first prove its ability to find and process data with high precision and reliability as raw material for further analysis.
+            </p>
+            <p>
+              To address this, we introduce <strong>FinSearchComp, the first open-source benchmark specifically designed for open-domain financial search.</strong>
+            </p>
+
+            <h3><strong>Benchmark Overview</strong></h3>
+            <ul>
+              <li><strong>635 Expert-Crafted questions</strong> to ensure real-world relevance and accuracy.</li>
+              <li>Includes <strong>3 sub-tasks</strong> (Time Sensitive Data Fetching, Simple Historical Lookup, Complex Historical Investigation) for both <strong>Global</strong> and <strong>Greater China</strong> subsets.</li>
+              <li><strong>Challenging:</strong> Most state-of-the-art agents perform below <strong>50% accuracy</strong>.</li>
+              <li>The entire dataset and evaluation suite are <strong>publicly available</strong>.</li>
+            </ul>
+
+            <h2>Data Distribution</h2>
+            <figure>
+              <img src="assets/image_2.png" alt="Data Distribution illustration (replace Feishu placeholder #2)" />
+            </figure>
+
+            <h2>Key Findings</h2>
+
+            <h3><strong>1. Top Models Struggle Significantly</strong></h3>
+            <ul>
+              <li>Human expert in general performence better than models</li>
+              <li>On straightforward tasks like <strong>Time</strong> <strong>Sensitive Data Fetching</strong> and <strong>Simple Historical Lookup</strong>, the average accuracy of top models is less than <strong>60% &amp; 40%</strong> respectively.</li>
+              <li>Performance plummets to <strong>below 20%</strong> on <strong>Complex Historical Investigation</strong> tasks, which require complex, multi-step reasoning. This highlights a major gap in advanced reasoning capabilities.</li>
+            </ul>
+            <figure>
+              <img src="assets/image_3.png" alt="Key Finding 1 chart A (replace Feishu placeholder #3)" />
+            </figure>
+            <figure>
+              <img src="assets/image_4.png" alt="Key Finding 1 chart B (replace Feishu placeholder #4)" />
+            </figure>
+
+            <h3><strong>2. Live Web Search is Essential, Not Optional</strong></h3>
+            <ul>
+              <li>Without search tool, models generally score 0 for time-sensitive tasks and marginal score for historical data search tasks</li>
+            </ul>
+            <figure>
+              <img src="assets/image_5.png" alt="Key Finding 2 chart A (replace Feishu placeholder #5)" />
+            </figure>
+            <figure>
+              <img src="assets/image_6.png" alt="Key Finding 2 chart B (replace Feishu placeholder #6)" />
+            </figure>
+
+            <h3><strong>3. Strong Regional Bias Impacts Performance</strong></h3>
+            <p>Models from China excel at queries related to the <strong>Greater China</strong> market but lag behind their international counterparts on <strong>Global</strong> market questions.</p>
+            <figure>
+              <img src="assets/image_7.png" alt="Key Finding 3 chart (replace Feishu placeholder #7)" />
+            </figure>
+
+            <h2><strong>Data construction process</strong></h2>
+            <figure>
+              <img src="assets/image_8.png" alt="Data construction process overview (replace Feishu placeholder #8)" />
+            </figure>
+            <p>To accommodate the unique characteristics of different tasks, we employ a variety of question-and-answer</p>
+            <p>construction strategies to ensure both diversity and quality.</p>
+            <ul>
+              <li><strong>Time-Sensitive Data Fetching</strong>: Financial experts design questions for real-time data (stock prices, exchange rates, metal prices) that can be verified through APIs. They prepare API call code to obtain real-time data points and verify results against actual market data, establishing error margins based on asset volatility characteristics.</li>
+              <li><strong>Simple Historical Lookup</strong>: Covers historical market data, corporate financials, and macro statistics obtained directly from sources. Data is collected from (i) official sources like company filings and regulatory websites, and (ii) professional financial databases. To handle potential data revisions, questions include reasonable answer ranges or specify reference time points.</li>
+              <li><strong>Complex Historical Investigation</strong>: Involves financial data requiring calculation and reasoning from multiple historical data points. Questions are created through (i) expert-designed real-world scenarios using reliable data sources, and (ii) expert analysis of verified database tables. Experts screen and refine candidates, finalizing 2-5 high-quality questions per table with definitive answers.</li>
+            </ul>
+            <p>
+              The answer verification mechanism utilizes a blind review module. After obtaining a question and its answer, one or two other financial experts solve the question independently without access to the answer key. If discrepancies arise in the results or if an expert deems a question to be ambiguous, a senior expert arbitrates the matter. Based on the final judgment, the question or answer will be modified, or the question will be discarded entirely.
+            </p>
+
+            <h2><strong>How to Evaluate: The</strong> <strong>Workflow</strong></h2>
+            <ul>
+              <li><strong>Simple &amp; Complex Historical Data:</strong> An <strong>LLM-as-judge</strong> automatically verifies static answers against the ground truth, allowing for a predefined margin of error.</li>
+              <li><strong>Time-Sensitive Data:</strong> Verification is performed against a live ground truth, fetched in real-time from an external financial database using pre-scripted queries. Our evaluation window is strategically set during non-trading hours for the vast majority of mainstream assets. For the few assets that are unavoidably trading during this fixed window, we apply wider validation thresholds (e.g., using the day's high-low price range) to ensure a fair assessment.
+                <br/>Specifically, our automated evaluation runs during one of the following windows:
+                <ul>
+                  <li>16:30 - 21:00 (Beijing Time, UTC+8) / 4:30 - 9:00 (US Eastern Time)</li>
+                  <li>5:30 - 9:00 (Beijing Time, UTC+8) / 17:30 - 21:00 (US Eastern Time, previous day)</li>
+                </ul>
+              </li>
+            </ul>
+
+            <figure>
+              <img src="assets/image_9.png" alt="Additional illustration placeholder (optional, to keep image count aligned)" />
+              <!-- <figcaption class="muted">（可替换为你希望在正文展示的附图）</figcaption> -->
+            </figure>
+          </article>
+        </section>
+      </div>
+    </section>
+
+    <!-- 面板二：Leaderboard（单列布局：先图后表） -->
+    <section id="panel-leaderboard" class="panel" role="tabpanel" aria-labelledby="tab-leaderboard" hidden>
+      <div class="page page-leaderboard">
+        <!-- 第一块：加宽的 Global leaderboard 图表 -->
+        <section class="main">
+          <article class="card">
+            <h3>leaderboard</h3>
+            <h4 class="muted" style="margin-top:4px">Global (non-China) Leaderboard</h4>
+            <div id="global-chart" class="chart chart-wide" aria-label="Global leaderboard bar chart"></div>
+          </article>
+        </section>
+
+        <!-- 第二块：Detailed Results 两张表 -->
+        <section class="main">
+          <article class="card">
+            <h2>Detailed Results</h2>
+
+            <h3>1. Global (non-China) Leaderboard</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th class="nowrap">Ranking</th>
+                  <th>Model Products / API</th>
+                  <th>Average Score</th>
+                  <th>Time-Sensitive</th>
+                  <th>Simple Historical</th>
+                  <th>Complex Historical</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>Grok 4 (web)</td><td>68.9%</td><td>87.3%</td><td>68.1%</td><td>51.2%</td></tr>
+                <tr><td>2</td><td>GPT-5 (web)</td><td>46.8%</td><td>75.4%</td><td>47.1%</td><td>17.9%</td></tr>
+                <tr><td>3</td><td>Gemini 2.5 pro (web)</td><td>42.6%</td><td>56.0%</td><td>44.5%</td><td>27.4%</td></tr>
+                <tr><td>4</td><td>GPT-5-thinking (web)</td><td>41.1%</td><td>64.4%</td><td>47.1%</td><td>11.9%</td></tr>
+                <tr><td>5</td><td>DouBao non-thinking (web)</td><td>39.1%</td><td>61.2%</td><td>33.6%</td><td>22.6%</td></tr>
+                <tr><td>6</td><td>Qwen3-235B-A22B-2507 (web)</td><td>37.4%</td><td>60.2%</td><td>37.8%</td><td>14.3%</td></tr>
+                <tr><td>7</td><td>Yuanbao (DeepSeek V3) (web)</td><td>30.5%</td><td>53.0%</td><td>24.4%</td><td>14.3%</td></tr>
+                <tr><td>8</td><td>Yuanbao (DeepSeek R1) (web)</td><td>29.8%</td><td>53.7%</td><td>22.7%</td><td>13.1%</td></tr>
+                <tr><td>8</td><td>Yuanbao (T1 thinking) (web)</td><td>29.8%</td><td>59.0%</td><td>18.5%</td><td>11.9%</td></tr>
+                <tr><td>8</td><td>DouBao thinking (web)</td><td>29.8%</td><td>34.3%</td><td>33.6%</td><td>21.4%</td></tr>
+                <tr><td>11</td><td>Kimi K2 (web)</td><td>29.5%</td><td>30.6%</td><td>47.1%</td><td>10.7%</td></tr>
+                <tr><td>12</td><td>DeepSeek R1 (web)</td><td>17.2%</td><td>17.9%</td><td>19.3%</td><td>14.3%</td></tr>
+                <tr><td>13</td><td>Ernie X1 (web)</td><td>16.6%</td><td>23.9%</td><td>15.1%</td><td>10.7%</td></tr>
+              </tbody>
+            </table>
+
+            <h3>2. Greater China Leaderboard</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th class="nowrap">Ranking</th>
+                  <th>Model Products / API</th>
+                  <th>Average Score</th>
+                  <th>Time-Sensitive</th>
+                  <th>Simple Historical</th>
+                  <th>Complex Historical</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>DouBao non-thinking (web)</td><td>54.2%</td><td>88.3%</td><td>63.0%</td><td>11.4%</td></tr>
+                <tr><td>2</td><td>Yuanbao (DeepSeek R1) (web)</td><td>52.5%</td><td>84.7%</td><td>58.0%</td><td>14.8%</td></tr>
+                <tr><td>3</td><td>Grok 4 (web)</td><td>51.9%</td><td>64.9%</td><td>67.0%</td><td>23.9%</td></tr>
+                <tr><td>4</td><td>Yuanbao (T1 thinking) (web)</td><td>50.5%</td><td>82.0%</td><td>58.0%</td><td>11.5%</td></tr>
+                <tr><td>5</td><td>DouBao thinking (web)</td><td>49.0%</td><td>62.2%</td><td>61.0%</td><td>23.9%</td></tr>
+                <tr><td>6</td><td>Yuanbao (DeepSeek V3) (web)</td><td>48.8%</td><td>81.1%</td><td>55.0%</td><td>10.2%</td></tr>
+                <tr><td>7</td><td>Ernie X1 (web)</td><td>40.8%</td><td>62.2%</td><td>49.0%</td><td>11.4%</td></tr>
+                <tr><td>8</td><td>DeepSeek R1 (web)</td><td>40.5%</td><td>56.8%</td><td>51.0%</td><td>13.6%</td></tr>
+                <tr><td>9</td><td>Kimi K2 (web)</td><td>38.3%</td><td>35.1%</td><td>73.0%</td><td>6.8%</td></tr>
+                <tr><td>10</td><td>Gemini 2.5 pro (web)</td><td>36.8%</td><td>51.9%</td><td>46.0%</td><td>12.5%</td></tr>
+                <tr><td>11</td><td>GPT-5-thinking (web)</td><td>23.1%</td><td>35.8%</td><td>30.0%</td><td>3.4%</td></tr>
+                <tr><td>12</td><td>Qwen3-235B-A22B-2507 (web)</td><td>21.9%</td><td>18.1%</td><td>42.0%</td><td>5.7%</td></tr>
+                <tr><td>13</td><td>GPT-5 (web)</td><td>19.3%</td><td>18.0%</td><td>32.0%</td><td>8.0%</td></tr>
+              </tbody>
+            </table>
+          </article>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>© FinSearchComp</small>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+:root{
+  --bg:#ffffff;
+  --bg-soft:#f7f8fb;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --shadow:0 6px 18px rgba(15,23,42,.08);
+  --radius:16px;
+  --primary-soft:rgba(145,167,255,.20);
+  --primary-soft-strong:rgba(145,167,255,.35);
+  --primary-line:rgba(145,167,255,.70);
+  --grid:#eef1f6;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg-soft);
+}
+
+/* Header */
+.site-header,.site-footer{
+  background:var(--bg);
+  border-bottom:1px solid #eef0f4
+}
+.site-footer{border-top:1px solid #eef0f4;border-bottom:none}
+.wrap{max-width:1200px;margin:0 auto;padding:16px 20px}
+.header-wrap{
+  display:flex;
+  gap:16px;
+  align-items:flex-end;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+.brand .title{margin:0 0 6px;font-size:24px}
+.brand .subtag{margin:4px 0 0;color:var(--muted);max-width:880px}
+
+/* Tabs - 放大按钮（要求2） */
+.tabs{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.tab{
+  appearance:none;
+  border:1px solid #e0e6fb;
+  background:#fff;
+  color:#374151;
+  border-radius:999px;
+  padding:12px 20px;              /* 更大内边距 */
+  font-size:16px;                 /* 更大字号 */
+  line-height:1.1;
+  cursor:pointer;
+  box-shadow:0 1px 2px rgba(15,23,42,.02);
+  transition:all .18s ease;
+}
+.tab:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(15,23,42,.06)}
+.tab.active{background:linear-gradient(180deg,#fff 0%,#f7f9ff 100%);border-color:#dfe5fb;outline:2px solid rgba(145,167,255,.18)}
+
+/* Abstract callout */
+.abstract{background:linear-gradient(180deg,#f9faff 0%, #f5f7fd 100%);border-bottom:1px solid #eef0f4}
+.abstract .abstract-card{
+  position:relative;background:var(--bg);border-radius:20px;padding:18px 18px 14px;
+  box-shadow:var(--shadow);border:1px solid #e8ecf8
+}
+.abstract-badge{
+  position:absolute;top:-12px;left:18px;background:#f1f4ff;color:#3b4ea0;
+  padding:6px 10px;border-radius:999px;border:1px solid #dfe5fb;font-size:12px
+}
+.abstract-text{margin:12px 0 6px;font-size:18px}
+.abstract-sub{margin:0;color:var(--muted)}
+
+/* Panels */
+.panel{padding:20px 0}
+.panel[hidden]{display:none}
+.page{
+  max-width:1200px;margin:0 auto;padding:0 20px 20px;
+  display:grid;grid-template-columns:1fr;grid-gap:20px
+}
+
+/* Leaderboard page: 单列布局（要求3） */
+.page-leaderboard{
+  grid-template-columns:1fr; /* 单列 */
+}
+
+/* Cards */
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:20px 18px 16px;
+  border:1px solid #eef0f7;
+}
+.card h2,.card h3{margin-top:6px}
+.main .card + .card{margin-top:20px}
+.chart{width:100%;height:580px}
+.chart-wide{height:640px} /* 图表更高，且占满整行，从视觉上“更宽” */
+
+/* Content */
+h1,h2,h3,h4{line-height:1.25}
+p{line-height:1.72}
+ul{padding-left:18px}
+li{line-height:1.7}
+
+/* 图片缩小（要求1）：限制最大宽度并居中，移动端仍自适应 */
+figure{margin:16px 0;text-align:center}
+figure img{
+  width:100%;
+  max-width:780px;          /* 控制最大宽度，避免过大 */
+  height:auto;
+  display:block;
+  margin:0 auto;
+  border-radius:12px;
+  box-shadow:var(--shadow)
+}
+figcaption{color:var(--muted);font-size:12px;margin-top:6px}
+.muted{color:var(--muted)}
+.hr{height:1px;background:#eef0f4;margin:6px 0 14px}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;margin:12px 0 4px;background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e8ecf4}
+thead th{
+  background:#f3f5fb;color:#374151;font-weight:600;text-align:center;padding:10px;border-bottom:1px solid #e8ecf4
+}
+tbody td{
+  padding:10px 8px;border-bottom:1px solid #eef1f6;text-align:center
+}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:#fafbfe}
+.nowrap{white-space:nowrap}
+
+/* Footer */
+.site-footer small{color:#8a93a6}
+
+/* Section headers nicety */
+.card h2{display:flex;align-items:center;gap:8px}
+.card h2::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg,transparent, #e7ebff 40%, transparent 100%);
+  margin-left:8px;
+}
+
+/* Focus */
+:focus-visible{
+  outline:2px solid rgba(145,167,255,.35);
+  outline-offset:2px;
+}
