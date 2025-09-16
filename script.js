@@ -58,23 +58,8 @@ function initCardModals() {
         });
     });
     
-    // Open modal when clicking on card (except for data-distribution card)
-    cardContents.forEach(card => {
-        card.addEventListener('click', (e) => {
-            // Skip if this is the data-distribution card
-            if (card.getAttribute('data-card') === 'data-distribution') {
-                return;
-            }
-            
-            const title = card.querySelector('.title').textContent;
-            const fullContent = card.querySelector('.card-full-content').innerHTML;
-            
-            modalTitle.textContent = title;
-            modalContent.innerHTML = fullContent;
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        });
-    });
+    // Note: Removed card click functionality to avoid duplicate modal triggers
+    // Only read more button will trigger the modal now
 }
 
 // Add fade-in animation to sections on scroll
