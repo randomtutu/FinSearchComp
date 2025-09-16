@@ -426,6 +426,63 @@ div {
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1.5rem;
+}
+
+#overview .box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+}
+
+/* Title styling for overview cards */
+#overview .title {
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  color: var(--primary-color) !important;
+  margin-bottom: 1.5rem !important;
+  text-align: center;
+}
+
+#overview .title i {
+  margin-right: 0.5rem;
+  color: var(--primary-color);
+}
+
+/* Introduction and Overview content styling */
+#overview .content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+}
+
+#overview .content p {
+  margin-bottom: 1.2rem;
+  text-align: left;
+  text-indent: 0;
+  word-spacing: normal;
+  letter-spacing: 0.02em;
+}
+
+#overview .content strong {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin: 0 0.1em;
+}
+
+/* Specific styling for list items in overview */
+#overview .content ul {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+#overview .content ul li {
+  margin-bottom: 0.8rem;
+  line-height: 1.7;
 }
 
 /* Card content styling */
@@ -435,30 +492,53 @@ div {
 
 /* Key Findings Section Styling */
 .finding-box {
-  width: 80%;
-  margin: 0 auto 2rem auto;
-  padding: 1.5rem;
-  box-shadow: #000 0px 0px 10px;
+  width: 85%;
+  margin: 0 auto 2.5rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.finding-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
 }
 
 .finding-box .title {
-  font-size: 1.25rem !important;
-  color: #000 !important;
+  font-size: 1.5rem !important;
+  color: var(--primary-color) !important;
+  font-weight: 600 !important;
+  margin-bottom: 1.5rem !important;
 }
 
 .finding-content {
-  max-width: 90%;
+  max-width: 95%;
   margin: 0 auto;
 }
 
 .finding-content ul {
-  font-size: 1.3rem;
-  line-height: 1.6;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+}
+
+.finding-content ul li {
+  margin-bottom: 0.8rem;
+  padding-left: 0.5rem;
+}
+
+.finding-content ul li strong {
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 .finding-content p {
-  font-size: 1.15rem;
-  line-height: 1.5;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-dark);
 }
 
 /* Data Construction Process Section Styling */
