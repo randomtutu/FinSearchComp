@@ -97,34 +97,7 @@ function initScrollAnimations() {
     });
 }
 
-function initExpandButtons() {
-  // Handle other card content sections (Overview, Introduction, etc.)
-  const readMoreBtns = document.querySelectorAll('.read-more-btn');
-  readMoreBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      const cardContent = this.closest('.card-content');
-      if (!cardContent) {
-        console.error('Could not find parent card-content element');
-        return;
-      }
-      
-      const cardPreview = cardContent.querySelector('.card-preview');
-      const cardFullContent = cardContent.querySelector('.card-full-content');
-      
-      if (cardPreview && cardFullContent) {
-        if (cardPreview.style.display === 'none') {
-          cardPreview.style.display = 'block';
-          cardFullContent.style.display = 'none';
-          this.textContent = 'Read More';
-        } else {
-          cardPreview.style.display = 'none';
-          cardFullContent.style.display = 'block';
-          this.textContent = 'Read Less';
-        }
-      }
-    });
-  });
-}
+// Removed initExpandButtons function - using modal popup instead
 
 // Initialize findings carousel
 function initFindingsCarousel() {
@@ -275,7 +248,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initChartLazyLoading();
     initImageLazyLoading();
     initImageZoom();
-    initExpandButtons();
     initFindingsCarousel();
 });
     

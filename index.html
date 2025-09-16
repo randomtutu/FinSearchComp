@@ -332,10 +332,14 @@ We provide a foundational, end-to-end evaluation infrastructure—an open financ
     <section class="section py-4" id="data-description" height="80%">
       <div class="container">
         <div class="box mb-4 data-description-box">
-          <h2 class="title is-3 has-text-centered has-text-black mb-4"><span><i class="fa-solid fa-chart-pie"></i> Data Description</span></h2>
+          <h2 class="title is-3 has-text-centered has-text-black mb-4"><span><i class="fa-solid fa-chart-pie"></i> Data Description & Distribution</span></h2>
           <div class="content">
             <p class="has-text-centered mb-3">Our benchmark consists of three distinct sub-tasks, each designed to evaluate different aspects of financial data retrieval and analysis capabilities.</p>
-            
+            <div class="has-text-centered mt-5">
+              <figure class="image-container">
+                <img src="assets/image1.png" alt="Data Distribution" class="zoomable-image" style="max-width: 60%; height: auto; margin: 0 auto; border-radius: 8px;" />
+              </figure>
+            </div>
             <div class="columns is-multiline">
               <div class="column is-4">
                 <div class="box">
@@ -387,13 +391,31 @@ We provide a foundational, end-to-end evaluation infrastructure—an open financ
           <div class="content">
             <p class="has-text-centered mb-4">To accommodate the unique characteristics of different tasks, we employ a variety of question-and-answer construction strategies to ensure both diversity and quality.</p>
             
+            <!-- Pipeline Image -->
+            <div class="has-text-centered mb-5">
+              <figure class="image-container">
+                <img src="assets/pipeline.png" alt="Data Construction Pipeline" class="zoomable-image" style="max-width: 60%; height: auto; margin: 0 auto; border-radius: 8px;" />
+              </figure>
+            </div>
+            
             <div class="columns is-multiline">
               <div class="column is-4">
                 <div class="card has-shadow" style="border-radius: 8px; height: 100%; background-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
                   <div class="card-content p-4">
                     <h4 class="title is-5 mb-3" style="font-weight: bold; color: black;"> Time-Sensitive Data Fetching</h4>
-                    <div class="content card-text" style="max-height: 150px; overflow: hidden;">
+                    <div class="card-preview">
+                      <p>Financial experts design questions for real-time data (stock prices, exchange rates, metal prices) that can be verified through APIs...</p>
+                    </div>
+                    <div class="card-full-content" style="display: none;">
                       <p>Financial experts design questions for real-time data (stock prices, exchange rates, metal prices) that can be verified through APIs. They prepare API call code to obtain real-time data points and verify results against actual market data, establishing error margins based on asset volatility characteristics.</p>
+                      <p><strong>Key Features:</strong></p>
+                      <ul>
+                        <li>Real-time API integration for live market data</li>
+                        <li>Automated verification against actual market conditions</li>
+                        <li>Dynamic error margin calculation based on asset volatility</li>
+                        <li>Expert-designed question templates for various financial instruments</li>
+                      </ul>
+                      <p><strong>Data Sources:</strong> Stock exchanges, forex markets, commodity trading platforms, and financial data providers like Bloomberg, Reuters, and Yahoo Finance.</p>
                     </div>
                     <div class="read-more-btn">Read More</div>
                   </div>
@@ -403,8 +425,19 @@ We provide a foundational, end-to-end evaluation infrastructure—an open financ
                 <div class="card has-shadow" style="border-radius: 8px; height: 100%; background-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
                   <div class="card-content p-4">
                     <h4 class="title is-5 mb-3" style="font-weight: bold; color: black;">Simple Historical Lookup</h4>
-                    <div class="content card-text" style="max-height: 150px; overflow: hidden;">
+                    <div class="card-preview">
+                      <p>Covers historical market data, corporate financials, and macro statistics obtained directly from sources...</p>
+                    </div>
+                    <div class="card-full-content" style="display: none;">
                       <p>Covers historical market data, corporate financials, and macro statistics obtained directly from sources. Data is collected from (i) official sources like company filings and regulatory websites, and (ii) professional financial databases. To handle potential data revisions, questions include reasonable answer ranges or specify reference time points.</p>
+                      <p><strong>Data Collection Methods:</strong></p>
+                      <ul>
+                        <li>Official company filings (10-K, 10-Q, 8-K reports)</li>
+                        <li>Regulatory websites (SEC, FINRA, exchange websites)</li>
+                        <li>Professional financial databases (Bloomberg Terminal, Refinitiv)</li>
+                        <li>Central bank publications and economic indicators</li>
+                      </ul>
+                      <p><strong>Quality Assurance:</strong> All data points are cross-referenced with multiple sources to ensure accuracy. Questions are designed with reasonable answer ranges to account for potential data revisions and different reporting standards.</p>
                     </div>
                     <div class="read-more-btn">Read More</div>
                   </div>
@@ -414,8 +447,20 @@ We provide a foundational, end-to-end evaluation infrastructure—an open financ
                 <div class="card has-shadow" style="border-radius: 8px; height: 100%; background-color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
                   <div class="card-content p-4">
                     <h4 class="title is-5 mb-3" style="font-weight: bold; color: black;"> Complex Historical Investigation</h4>
-                    <div class="content card-text" style="max-height: 150px; overflow: hidden;">
+                    <div class="card-preview">
+                      <p>Involves financial data requiring calculation and reasoning from multiple historical data points...</p>
+                    </div>
+                    <div class="card-full-content" style="display: none;">
                       <p>Involves financial data requiring calculation and reasoning from multiple historical data points. Questions are created through (i) expert-designed real-world scenarios using reliable data sources, and (ii) expert analysis of verified database tables. Experts screen and refine candidates, finalizing 2-5 high-quality questions per table with definitive answers.</p>
+                      <p><strong>Question Creation Process:</strong></p>
+                      <ul>
+                        <li>Expert-designed real-world financial scenarios</li>
+                        <li>Multi-step calculations involving historical trends</li>
+                        <li>Cross-referencing multiple data sources for validation</li>
+                        <li>Rigorous screening and refinement by senior experts</li>
+                      </ul>
+                      <p><strong>Complexity Examples:</strong> Portfolio performance analysis over multiple time periods, sector rotation patterns, correlation analysis between different asset classes, and risk-adjusted return calculations.</p>
+                      <p><strong>Quality Control:</strong> Each question undergoes multiple rounds of expert review, with 2-5 high-quality questions selected per database table to ensure both accuracy and educational value.</p>
                     </div>
                     <div class="read-more-btn">Read More</div>
                   </div>
@@ -455,12 +500,12 @@ We provide a foundational, end-to-end evaluation infrastructure—an open financ
           <div class="columns is-multiline">
             <div class="column is-6">
               <figure class="image-container">
-                <img data-src="assets/image_3.PNG" alt="Key Finding 1 chart A" class="lazy-image zoomable-image" loading="lazy" />
+                <img data-src="assets/image2.png" alt="Key Finding 1 chart A" class="lazy-image zoomable-image" loading="lazy" />
               </figure>
             </div>
             <div class="column is-6">
               <figure class="image-container">
-                <img data-src="assets/image_4.png" alt="Key Finding 1 chart B" class="lazy-image zoomable-image" loading="lazy" />
+                <img data-src="assets/image3.png" alt="Key Finding 1 chart B" class="lazy-image zoomable-image" loading="lazy" />
               </figure>
             </div>
           </div>
@@ -477,12 +522,12 @@ We provide a foundational, end-to-end evaluation infrastructure—an open financ
           <div class="columns is-multiline">
             <div class="column is-6">
               <figure class="image-container">
-                <img data-src="assets/image_5.png" alt="Key Finding 2 chart A" class="lazy-image zoomable-image" loading="lazy" />
+                <img data-src="assets/image4.png" alt="Key Finding 2 chart A" class="lazy-image zoomable-image" loading="lazy" />
               </figure>
             </div>
             <div class="column is-6">
               <figure class="image-container">
-                <img data-src="assets/image_6.png" alt="Key Finding 2 chart B" class="lazy-image zoomable-image" loading="lazy" />
+                <img data-src="assets/image5.png" alt="Key Finding 2 chart B" class="lazy-image zoomable-image" loading="lazy" />
               </figure>
             </div>
           </div>
@@ -495,16 +540,14 @@ We provide a foundational, end-to-end evaluation infrastructure—an open financ
             <p class="is-inline-block has-text-left">Models from China excel at queries related to the <strong>Greater China</strong> market but lag behind their international counterparts on <strong>Global</strong> market questions.</p>
           </div>
           <div class="columns is-multiline">
-            <div class="column is-6">
               <figure class="image-container">
-                <img data-src="assets/image_7.png" alt="Key Finding 3 chart A" class="lazy-image zoomable-image" loading="lazy" />
+                <img data-src="assets/image6.png" alt="Key Finding 3 chart A" class="lazy-image zoomable-image" loading="lazy" />
               </figure>
-            </div>
-            <div class="column is-6">
+            <!-- <div class="column is-6">
               <figure class="image-container">
                 <img data-src="assets/image_8.png" alt="Key Finding 3 chart B" class="lazy-image zoomable-image" loading="lazy" />
               </figure>
-            </div>
+            </div> -->
           </div>
         </div>
         
