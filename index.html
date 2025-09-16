@@ -19,6 +19,8 @@
   <!-- Font Awesome - Optimized loading -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+  <!-- Academicons for academic icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
   <!-- Plotly - Lazy loaded -->
@@ -49,51 +51,75 @@
             <h1 class="title is-1 publication-title is-bold">
               <span class="has-text-primary"><i class="fa-solid fa-chart-bar"></i> FinSearchComp</span> Benchmark
             </h1>
-            <p class="subtitle is-4 publication-subtitle">
-              This benchmark evaluates how a pair of model + search tool perform on collecting accurate financial data, for later creating high quality output to user's financial queries
+            <p class="subtitle is-11 publication-subtitle">
+              Realistic decision-making tasks require three core skills: finding the right signals, checking and reconciling sources, and turning them into grounded judgments under time pressure.
+We provide a foundational, end-to-end evaluation infrastructure—an open finance benchmark with tasks for time-sensitive fetching, historical lookup, and multi-source investigation—that measures these skills directly.
             </p>
             
             <div class="publication-links"> 
-               <span class="link-block"> 
-                 <a href="#overview" class="external-link button is-normal is-rounded is-dark"> 
-                    <span class="icon"> 
-                      <i class="fas fa-info-circle"></i> 
-                    </span> 
-                    <span>Overview</span> 
-                  </a> 
-               </span> 
-               <span class="link-block"> 
-                 <a href="#" class="external-link button is-normal is-rounded is-dark"> 
+               <!-- First row: Arxiv, HuggingFace Dataset, XpertPlatform -->
+                <div style="margin-bottom: 0.5rem;">
+                  <span class="link-block"> 
+                    <a href="#" class="external-link button is-normal is-rounded is-dark"> 
+                        <span class="icon"> 
+                          <i class="ai ai-arxiv"></i> 
+                        </span> 
+                        <span>Arxiv</span> 
+                      </a> 
+                  </span>
+                  <span class="link-block"> 
+                    <a href="https://huggingface.co/ByteSeedXpert/FinSearchComp" class="external-link button is-normal is-rounded is-dark" target="_blank"> 
+                       <span class="icon"> 
+                         <i class="fas fa-smile"></i>
+                       </span> 
+                       <span>HuggingFace Dataset</span> 
+                     </a> 
+                  </span>
+                  <span class="link-block"> 
+                    <a href="https://xpert.bytedance.com/leaderboard?id=FinSearchComp" class="external-link button is-normal is-rounded is-dark" target="_blank"> 
+                       <span class="icon"> 
+                         <i class="fas fa-external-link-alt"></i> 
+                       </span> 
+                       <span>XpertPlatform</span> 
+                     </a> 
+                  </span>
+                </div>
+               
+               <!-- Second row: Overview, Leaderboard, Data Construction, Key Findings -->
+               <div>
+                 <span class="link-block"> 
+                   <a href="#overview" class="external-link button is-normal is-rounded is-dark"> 
+                      <span class="icon"> 
+                        <i class="fas fa-info-circle"></i> 
+                      </span> 
+                      <span>Overview</span> 
+                    </a> 
+                 </span> 
+                 <span class="link-block"> 
+                   <a href="#leaderboard" class="external-link button is-normal is-rounded is-dark"> 
                      <span class="icon"> 
-                       <i class="fa-solid fa-chart-line"></i> 
+                       <i class="fa-solid fa-trophy"></i> 
                      </span> 
-                     <span>Arxiv</span> 
+                     <span>Leaderboard</span> 
                    </a> 
-               </span> 
-               <span class="link-block"> 
-                 <a href="#leaderboard" class="external-link button is-normal is-rounded is-dark"> 
-                   <span class="icon"> 
-                     <i class="fa-solid fa-trophy"></i> 
-                   </span> 
-                   <span>Leaderboard</span> 
-                 </a> 
-               </span> 
-               <span class="link-block"> 
-                 <a href="#data-construction" class="external-link button is-normal is-rounded is-dark"> 
-                    <span class="icon"> 
-                      <i class="fa-solid fa-chart-pie"></i> 
-                    </span> 
-                    <span>Data Construction</span> 
-                  </a> 
-               </span> 
-               <span class="link-block"> 
-                 <a href="#key-findings" class="external-link button is-normal is-rounded is-dark"> 
-                    <span class="icon"> 
-                      <i class="fa-solid fa-lightbulb"></i> 
-                    </span> 
-                    <span>Key Findings</span> 
-                  </a> 
-               </span> 
+                 </span> 
+                 <span class="link-block"> 
+                   <a href="#data-construction" class="external-link button is-normal is-rounded is-dark"> 
+                      <span class="icon"> 
+                        <i class="fa-solid fa-chart-pie"></i> 
+                      </span> 
+                      <span>Data Construction</span> 
+                    </a> 
+                 </span> 
+                 <span class="link-block"> 
+                   <a href="#key-findings" class="external-link button is-normal is-rounded is-dark"> 
+                      <span class="icon"> 
+                        <i class="fa-solid fa-lightbulb"></i> 
+                      </span> 
+                      <span>Key Findings</span> 
+                    </a> 
+                 </span>
+               </div>
              </div>
           </div>
         </div>
@@ -169,15 +195,15 @@
             <div class="box" style="padding: 1.5rem;">
               <h2 class="title is-3 has-text-centered has-text-black mb-4"><i class="fa-solid fa-trophy"></i> Performance Leaderboard</h2>
               
-              <!-- Global Models -->
-              <h3 class="title is-5 mb-3"><i class="fa-solid fa-globe"></i> Global Models</h3>
+              <!-- Global Data Performance -->
+              <h3 class="title is-5 mb-3"><i class="fa-solid fa-globe"></i> Global Data Performance</h3>
               <div class="table-container" style="overflow-x: auto; max-height: 300px; overflow-y: auto; border: 1px solid #dbdbdb; border-radius: 4px;">
                 <table class="table is-fullwidth is-striped is-hoverable" style="margin-bottom: 0;">
                   <thead>
                      <tr class="has-background-light">
                        <th class="has-text-black nowrap" style="min-width: 80px; font-weight: bold;">Rank</th>
                        <th class="has-text-black" style="min-width: 200px; font-weight: bold;">Model</th>
-                       <th class="has-text-black" style="min-width: 100px; font-weight: bold;">Avg Score</th>
+                       <th class="has-text-black" style="min-width: 100px; font-weight: bold;">Avg.</th>
                        <th class="has-text-black" style="min-width: 120px; font-weight: bold;">Time-Sensitive</th>
                        <th class="has-text-black" style="min-width: 130px; font-weight: bold;">Simple Historical</th>
                        <th class="has-text-black" style="min-width: 140px; font-weight: bold;">Complex Historical</th>
@@ -185,50 +211,48 @@
                    </thead>
                   <tbody>
                     <tr><td class="has-text-black"><span class="tag is-warning is-small">🥇 1</span></td><td class="has-text-black"><strong>Grok 4 (web)</strong></td><td class="has-text-black"><span class="tag is-success is-small">68.9%</span></td><td class="has-text-black">87.3%</td><td class="has-text-black">68.1%</td><td class="has-text-black">51.2%</td></tr>
-                     <tr><td class="has-text-black"><span class="tag is-light is-small">🥈 2</span></td><td class="has-text-black"><strong>GPT-5 (web)</strong></td><td class="has-text-black"><span class="tag is-info is-small">46.8%</span></td><td class="has-text-black">75.4%</td><td class="has-text-black">47.1%</td><td class="has-text-black">17.9%</td></tr>
+                     <tr><td class="has-text-black"><span class="tag is-light is-small">🥈 2</span></td><td class="has-text-black"><strong>GPT-5-Thinking (web)</strong></td><td class="has-text-black"><span class="tag is-info is-small">63.9%</span></td><td class="has-text-black">76.9%</td><td class="has-text-black">67.2%</td><td class="has-text-black">47.6%</td></tr>
                      <tr><td class="has-text-black"><span class="tag is-light is-small">🥉 3</span></td><td class="has-text-black"><strong>Gemini 2.5 pro (web)</strong></td><td class="has-text-black"><span class="tag is-info is-small">42.6%</span></td><td class="has-text-black">56.0%</td><td class="has-text-black">44.5%</td><td class="has-text-black">27.4%</td></tr>
-                     <tr><td class="has-text-black">4</td><td class="has-text-black">GPT-5-thinking (web)</td><td class="has-text-black">41.1%</td><td class="has-text-black">64.4%</td><td class="has-text-black">47.1%</td><td class="has-text-black">11.9%</td></tr>
-                     <tr><td class="has-text-black">5</td><td class="has-text-black">DouBao non-thinking (web)</td><td class="has-text-black">39.1%</td><td class="has-text-black">61.2%</td><td class="has-text-black">33.6%</td><td class="has-text-black">22.6%</td></tr>
-                     <tr><td class="has-text-black">6</td><td class="has-text-black">Qwen3-235B-A22B-2507 (web)</td><td class="has-text-black">37.4%</td><td class="has-text-black">60.2%</td><td class="has-text-black">37.8%</td><td class="has-text-black">14.3%</td></tr>
-                     <tr><td class="has-text-black">7</td><td class="has-text-black">Yuanbao (DeepSeek V3) (web)</td><td class="has-text-black">30.5%</td><td class="has-text-black">53.0%</td><td class="has-text-black">24.4%</td><td class="has-text-black">14.3%</td></tr>
-                     <tr><td class="has-text-black">8</td><td class="has-text-black">Yuanbao (DeepSeek R1) (web)</td><td class="has-text-black">29.8%</td><td class="has-text-black">53.7%</td><td class="has-text-black">22.7%</td><td class="has-text-black">13.1%</td></tr>
-                     <tr><td class="has-text-black">8</td><td class="has-text-black">Yuanbao (T1 thinking) (web)</td><td class="has-text-black">29.8%</td><td class="has-text-black">59.0%</td><td class="has-text-black">18.5%</td><td class="has-text-black">11.9%</td></tr>
-                     <tr><td class="has-text-black">8</td><td class="has-text-black">DouBao thinking (web)</td><td class="has-text-black">29.8%</td><td class="has-text-black">34.3%</td><td class="has-text-black">33.6%</td><td class="has-text-black">21.4%</td></tr>
-                     <tr><td class="has-text-black">11</td><td class="has-text-black">Kimi K2 (web)</td><td class="has-text-black">29.5%</td><td class="has-text-black">30.6%</td><td class="has-text-black">47.1%</td><td class="has-text-black">10.7%</td></tr>
-                     <tr><td class="has-text-black">12</td><td class="has-text-black">DeepSeek R1 (web)</td><td class="has-text-black">17.2%</td><td class="has-text-black">17.9%</td><td class="has-text-black">19.3%</td><td class="has-text-black">14.3%</td></tr>
-                     <tr><td class="has-text-black">13</td><td class="has-text-black">Ernie X1 (web)</td><td class="has-text-black">16.6%</td><td class="has-text-black">23.9%</td><td class="has-text-black">15.1%</td><td class="has-text-black">10.7%</td></tr>
+                     <tr><td class="has-text-black">4</td><td class="has-text-black">DouBao (web)</td><td class="has-text-black">39.1%</td><td class="has-text-black">61.2%</td><td class="has-text-black">33.6%</td><td class="has-text-black">22.6%</td></tr>
+                     <tr><td class="has-text-black">5</td><td class="has-text-black">Qwen3-235B-A22B-2507 (web)</td><td class="has-text-black">37.4%</td><td class="has-text-black">60.2%</td><td class="has-text-black">37.8%</td><td class="has-text-black">14.3%</td></tr>
+                     <tr><td class="has-text-black">6</td><td class="has-text-black">YuanBao (DeepSeek V3) (web)</td><td class="has-text-black">30.5%</td><td class="has-text-black">53.0%</td><td class="has-text-black">24.4%</td><td class="has-text-black">14.3%</td></tr>
+                     <tr><td class="has-text-black">7</td><td class="has-text-black">YuanBao (HunYuan-T1-Thinking) (web)</td><td class="has-text-black">29.8%</td><td class="has-text-black">59.0%</td><td class="has-text-black">18.5%</td><td class="has-text-black">11.9%</td></tr>
+                     <tr><td class="has-text-black">7</td><td class="has-text-black">YuanBao (DeepSeek R1) (web)</td><td class="has-text-black">29.8%</td><td class="has-text-black">53.7%</td><td class="has-text-black">22.7%</td><td class="has-text-black">13.1%</td></tr>
+                     <tr><td class="has-text-black">7</td><td class="has-text-black">DouBao-Thinking (web)</td><td class="has-text-black">29.8%</td><td class="has-text-black">34.3%</td><td class="has-text-black">33.6%</td><td class="has-text-black">21.4%</td></tr>
+                     <tr><td class="has-text-black">10</td><td class="has-text-black">Kimi k2 (web)</td><td class="has-text-black">29.5%</td><td class="has-text-black">30.6%</td><td class="has-text-black">47.1%</td><td class="has-text-black">10.7%</td></tr>
+                     <tr><td class="has-text-black">11</td><td class="has-text-black">DeepSeek R1 (web)</td><td class="has-text-black">17.2%</td><td class="has-text-black">17.9%</td><td class="has-text-black">19.3%</td><td class="has-text-black">14.3%</td></tr>
+                     <tr><td class="has-text-black">12</td><td class="has-text-black">ERNIE X1 (web)</td><td class="has-text-black">16.6%</td><td class="has-text-black">23.9%</td><td class="has-text-black">15.1%</td><td class="has-text-black">10.7%</td></tr>
                   </tbody>
                 </table>
               </div>
               
-              <!-- Greater China Models -->
-              <h3 class="title is-5 mb-3 mt-4"><i class="fa-solid fa-map-marker-alt"></i> Greater China Models</h3>
+              <!-- Greater China Data Performance -->
+              <h3 class="title is-5 mb-3 mt-4"><i class="fa-solid fa-map-marker-alt"></i> Greater China Data Performance</h3>
               <div class="table-container" style="overflow-x: auto; max-height: 300px; overflow-y: auto; border: 1px solid #dbdbdb; border-radius: 4px;">
                 <table class="table is-fullwidth is-striped is-hoverable" style="margin-bottom: 0;">
                   <thead>
                      <tr class="has-background-light">
                        <th class="has-text-black nowrap" style="min-width: 80px; font-weight: bold;">Rank</th>
                        <th class="has-text-black" style="min-width: 200px; font-weight: bold;">Model</th>
-                       <th class="has-text-black" style="min-width: 100px; font-weight: bold;">Avg Score</th>
+                       <th class="has-text-black" style="min-width: 100px; font-weight: bold;">Avg.</th>
                        <th class="has-text-black" style="min-width: 120px; font-weight: bold;">Time-Sensitive</th>
                        <th class="has-text-black" style="min-width: 130px; font-weight: bold;">Simple Historical</th>
                        <th class="has-text-black" style="min-width: 140px; font-weight: bold;">Complex Historical</th>
                      </tr>
                    </thead>
                   <tbody>
-                    <tr><td class="has-text-black"><span class="tag is-warning is-small">🥇 1</span></td><td class="has-text-black"><strong>DouBao non-thinking (web)</strong></td><td class="has-text-black"><span class="tag is-success is-small">54.2%</span></td><td class="has-text-black">88.3%</td><td class="has-text-black">63.0%</td><td class="has-text-black">11.4%</td></tr>
-                     <tr><td class="has-text-black"><span class="tag is-light is-small">🥈 2</span></td><td class="has-text-black"><strong>Yuanbao (DeepSeek R1) (web)</strong></td><td class="has-text-black"><span class="tag is-success is-small">52.5%</span></td><td class="has-text-black">84.7%</td><td class="has-text-black">58.0%</td><td class="has-text-black">14.8%</td></tr>
+                    <tr><td class="has-text-black"><span class="tag is-warning is-small">🥇 1</span></td><td class="has-text-black"><strong>DouBao (web)</strong></td><td class="has-text-black"><span class="tag is-success is-small">54.2%</span></td><td class="has-text-black">88.3%</td><td class="has-text-black">63.0%</td><td class="has-text-black">11.4%</td></tr>
+                     <tr><td class="has-text-black"><span class="tag is-light is-small">🥈 2</span></td><td class="has-text-black"><strong>YuanBao (DeepSeek R1) (web)</strong></td><td class="has-text-black"><span class="tag is-success is-small">52.5%</span></td><td class="has-text-black">84.7%</td><td class="has-text-black">58.0%</td><td class="has-text-black">14.8%</td></tr>
                      <tr><td class="has-text-black"><span class="tag is-light is-small">🥉 3</span></td><td class="has-text-black"><strong>Grok 4 (web)</strong></td><td class="has-text-black"><span class="tag is-info is-small">51.9%</span></td><td class="has-text-black">64.9%</td><td class="has-text-black">67.0%</td><td class="has-text-black">23.9%</td></tr>
-                     <tr><td class="has-text-black">4</td><td class="has-text-black">Yuanbao (T1 thinking) (web)</td><td class="has-text-black">50.5%</td><td class="has-text-black">82.0%</td><td class="has-text-black">58.0%</td><td class="has-text-black">11.5%</td></tr>
-                     <tr><td class="has-text-black">5</td><td class="has-text-black">DouBao thinking (web)</td><td class="has-text-black">49.0%</td><td class="has-text-black">62.2%</td><td class="has-text-black">61.0%</td><td class="has-text-black">23.9%</td></tr>
-                     <tr><td class="has-text-black">6</td><td class="has-text-black">Yuanbao (DeepSeek V3) (web)</td><td class="has-text-black">48.8%</td><td class="has-text-black">81.1%</td><td class="has-text-black">55.0%</td><td class="has-text-black">10.2%</td></tr>
-                     <tr><td class="has-text-black">7</td><td class="has-text-black">Ernie X1 (web)</td><td class="has-text-black">40.8%</td><td class="has-text-black">62.2%</td><td class="has-text-black">49.0%</td><td class="has-text-black">11.4%</td></tr>
-                     <tr><td class="has-text-black">8</td><td class="has-text-black">DeepSeek R1 (web)</td><td class="has-text-black">40.5%</td><td class="has-text-black">56.8%</td><td class="has-text-black">51.0%</td><td class="has-text-black">13.6%</td></tr>
-                     <tr><td class="has-text-black">9</td><td class="has-text-black">Kimi K2 (web)</td><td class="has-text-black">38.3%</td><td class="has-text-black">35.1%</td><td class="has-text-black">73.0%</td><td class="has-text-black">6.8%</td></tr>
-                     <tr><td class="has-text-black">10</td><td class="has-text-black">Gemini 2.5 pro (web)</td><td class="has-text-black">36.8%</td><td class="has-text-black">51.9%</td><td class="has-text-black">46.0%</td><td class="has-text-black">12.5%</td></tr>
-                     <tr><td class="has-text-black">11</td><td class="has-text-black">GPT-5-thinking (web)</td><td class="has-text-black">23.1%</td><td class="has-text-black">35.8%</td><td class="has-text-black">30.0%</td><td class="has-text-black">3.4%</td></tr>
+                     <tr><td class="has-text-black">4</td><td class="has-text-black">YuanBao (HunYuan-T1-Thinking) (web)</td><td class="has-text-black">50.5%</td><td class="has-text-black">82.0%</td><td class="has-text-black">58.0%</td><td class="has-text-black">11.5%</td></tr>
+                     <tr><td class="has-text-black">5</td><td class="has-text-black">DouBao-Thinking (web)</td><td class="has-text-black">49.0%</td><td class="has-text-black">62.2%</td><td class="has-text-black">61.0%</td><td class="has-text-black">23.9%</td></tr>
+                     <tr><td class="has-text-black">6</td><td class="has-text-black">YuanBao (DeepSeek V3) (web)</td><td class="has-text-black">48.8%</td><td class="has-text-black">81.1%</td><td class="has-text-black">55.0%</td><td class="has-text-black">10.2%</td></tr>
+                     <tr><td class="has-text-black">7</td><td class="has-text-black">GPT-5-Thinking (web)</td><td class="has-text-black">46.4%</td><td class="has-text-black">60.4%</td><td class="has-text-black">63.0%</td><td class="has-text-black">15.9%</td></tr>
+                     <tr><td class="has-text-black">8</td><td class="has-text-black">ERNIE X1 (web)</td><td class="has-text-black">40.8%</td><td class="has-text-black">62.2%</td><td class="has-text-black">49.0%</td><td class="has-text-black">11.4%</td></tr>
+                     <tr><td class="has-text-black">9</td><td class="has-text-black">DeepSeek R1 (web)</td><td class="has-text-black">40.5%</td><td class="has-text-black">56.8%</td><td class="has-text-black">51.0%</td><td class="has-text-black">13.6%</td></tr>
+                     <tr><td class="has-text-black">10</td><td class="has-text-black">Kimi k2 (web)</td><td class="has-text-black">38.3%</td><td class="has-text-black">35.1%</td><td class="has-text-black">73.0%</td><td class="has-text-black">6.8%</td></tr>
+                     <tr><td class="has-text-black">11</td><td class="has-text-black">Gemini 2.5 pro (web)</td><td class="has-text-black">36.8%</td><td class="has-text-black">51.9%</td><td class="has-text-black">46.0%</td><td class="has-text-black">12.5%</td></tr>
                      <tr><td class="has-text-black">12</td><td class="has-text-black">Qwen3-235B-A22B-2507 (web)</td><td class="has-text-black">21.9%</td><td class="has-text-black">18.1%</td><td class="has-text-black">42.0%</td><td class="has-text-black">5.7%</td></tr>
-                     <tr><td class="has-text-black">13</td><td class="has-text-black">GPT-5 (web)</td><td class="has-text-black">19.3%</td><td class="has-text-black">18.0%</td><td class="has-text-black">32.0%</td><td class="has-text-black">8.0%</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -243,7 +267,7 @@
       <div class="container">
         <div class="columns is-centered">
           <!-- Benchmark Introduction Card -->
-          <div class="column is-one-third">
+          <div class="column is-half">
             <div class="box card-content" data-card="introduction">
               <h2 class="title is-3 has-text-centered"><i class="fa-solid fa-info-circle"></i> Introduction</h2>
               <div class="content has-text-justified card-body">
@@ -278,7 +302,7 @@
           </div>
           
           <!-- Benchmark Overview Card -->
-          <div class="column is-one-third">
+          <div class="column is-half">
             <div class="box card-content" data-card="overview">
               <h2 class="title is-3 has-text-centered"><i class="fa-solid fa-list-check"></i> Overview</h2>
               <div class="content card-body">
@@ -300,21 +324,62 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
 
-          <!-- Data Distribution Card -->
-          <div class="column is-one-third">
-            <div class="box card-content data-distribution-card" data-card="data-distribution">
-              <h2 class="title is-3 has-text-centered"><i class="fa-solid fa-chart-pie"></i> Data Distribution</h2>
-              <div class="content card-body">
-                <div class="image-container">
-                  <img data-src="assets/image_2.PNG" alt="Data Distribution illustration" class="lazy-image zoomable-image" loading="lazy">
+    <!-- Data Description Section -->
+    <section class="section py-4" id="data-description" height="80%">
+      <div class="container">
+        <div class="box mb-4 data-description-box">
+          <h2 class="title is-3 has-text-centered has-text-black mb-4"><span><i class="fa-solid fa-chart-pie"></i> Data Description</span></h2>
+          <div class="content">
+            <p class="has-text-centered mb-3">Our benchmark consists of three distinct sub-tasks, each designed to evaluate different aspects of financial data retrieval and analysis capabilities.</p>
+            
+            <div class="columns is-multiline">
+              <div class="column is-4">
+                <div class="box">
+                  <h3 class="title is-5 has-text-centered mb-3">
+                    <i class="fa-solid fa-clock has-text-danger"></i> T1: Time-Sensitive Data Fetching
+                  </h3>
+                  <div class="content">
+                    <p>Tests the ability to retrieve time-sensitive, frequently updated data.</p>
+                    <p><strong>Example:</strong> <em>IBM latest close price.</em></p>
+                    <p><strong>Answer:</strong> Will change - Obtained from a real-time API query</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="column is-4">
+                <div class="box">
+                  <h3 class="title is-5 has-text-centered mb-3">
+                    <i class="fa-solid fa-database has-text-info"></i> T2: Simple Historical Lookup
+                  </h3>
+                  <div class="content">
+                    <p>Tests the ability to retrieve specific, non-time-sensitive historical facts.</p>
+                    <p><strong>Example:</strong> <em>What was the total assets of Starbucks as of 2020.09.27?</em></p>
+                    <p><strong>Answer:</strong> $29374.5 million, rounding errors allowed</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="column is-4">
+                <div class="box">
+                  <h3 class="title is-5 has-text-centered mb-3">
+                    <i class="fa-solid fa-search has-text-success"></i> T3: Complex Historical Investigation
+                  </h3>
+                  <div class="content">
+                    <p>Tests the ability to perform multi-step reasoning, aggregation, and calculation.</p>
+                    <p><strong>Example:</strong> <em>From January 2010 to April 2025, in which month did the S&P 500 index experience the largest single-month increase?</em></p>
+                    <p><strong>Answer:</strong> April 2020, 12.68%, error ±0.1% allowed</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
     <section class="section" id="data-construction">
     <!-- Data Construction Process -->
         <div class="box mb-5 data-construction-box">
@@ -443,141 +508,15 @@
           </div>
         </div>
         
-        <!-- Evaluation Workflow -->
-        <!-- <div class="box">
-          <h2 class="title is-2 has-text-centered has-text-primary mb-5">How to Evaluate: The Workflow</h2>
-          <div class="columns is-multiline">
-            <div class="column is-6">
-              <div class="notification is-info is-light p-4">
-                <h4 class="title is-5 mb-3">Simple & Complex Historical Data</h4>
-                <p>An <strong>LLM-as-judge</strong> automatically verifies static answers against the ground truth, allowing for a predefined margin of error.</p>
-              </div>
-            </div>
-            <div class="column is-6">
-              <div class="notification is-info is-light p-4">
-                <h4 class="title is-5 mb-3">Time-Sensitive Data</h4>
-                <p>Verification is performed against a live ground truth, fetched in real-time from an external financial database using pre-scripted queries. Our evaluation window is strategically set during non-trading hours for the vast majority of mainstream assets. For the few assets that are unavoidably trading during this fixed window, we apply wider validation thresholds (e.g., using the day's high-low price range) to ensure a fair assessment.</p>
-                <p class="mt-3">Specifically, our automated evaluation runs during one of the following windows:</p>
-                <ul>
-                  <li>16:30 - 21:00 (Beijing Time, UTC+8) / 4:30 - 9:00 (US Eastern Time)</li>
-                  <li>5:30 - 9:00 (Beijing Time, UTC+8) / 17:30 - 21:00 (US Eastern Time, previous day)</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
     </section>
-
-    <!-- Leaderboard Section
-    <section class="hero is-primary" id="leaderboard">
-      <div class="hero-body has-text-centered">
-        <h1 class="title is-1">
-          <span>🏆 Model Performance Leaderboard</span>
-        </h1>
-        <p class="subtitle is-4">
-          Comparing different model-search tool combinations on financial search tasks
-        </p>
-      </div>
-    </section> -->
-<!--     
-    <section class="section">
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-full">
-            <div class="box">
-              <h3 class="title is-4 has-text-centered">Global Models Performance</h3>
-              <div class="tabs is-centered is-boxed">
-                <ul>
-                  <li class="is-active"><a>Chart View</a></li>
-                  <li><a>Table View</a></li>
-                </ul>
-              </div>
-              <div id="global-chart" style="width: 100%; height: 450px; position: relative;">
-                <div id="chart-loading" class="chart-loading">
-                  <div class="loading-spinner"></div>
-                  <p>Loading visualization...</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="box">
-              <h2 class="title is-3 has-text-centered">Performance Rankings</h2>
-
-              <h3 class="title is-4"><i class="fas fa-globe"></i> Global Models</h3>
-              <div class="table-container">
-                <table class="table is-fullwidth is-striped is-hoverable">
-                  <thead>
-                    <tr class="has-background-dark has-text-white">
-                      <th class="has-text-white nowrap">Ranking</th>
-                      <th class="has-text-white">Model Products / API</th>
-                      <th class="has-text-white">Average Score</th>
-                      <th class="has-text-white">Time-Sensitive</th>
-                      <th class="has-text-white">Simple Historical</th>
-                      <th class="has-text-white">Complex Historical</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="has-background-warning-light"><td><span class="tag is-warning is-medium">🥇 1</span></td><td><strong>Grok 4 (web)</strong></td><td><span class="tag is-success is-medium">68.9%</span></td><td>87.3%</td><td>68.1%</td><td>51.2%</td></tr>
-                    <tr class="has-background-grey-lighter"><td><span class="tag is-light is-medium">🥈 2</span></td><td><strong>GPT-5 (web)</strong></td><td><span class="tag is-info is-medium">46.8%</span></td><td>75.4%</td><td>47.1%</td><td>17.9%</td></tr>
-                    <tr class="has-background-warning-light"><td><span class="tag is-light is-medium">🥉 3</span></td><td><strong>Gemini 2.5 pro (web)</strong></td><td><span class="tag is-info is-medium">42.6%</span></td><td>56.0%</td><td>44.5%</td><td>27.4%</td></tr>
-                <tr><td>4</td><td>GPT-5-thinking (web)</td><td>41.1%</td><td>64.4%</td><td>47.1%</td><td>11.9%</td></tr>
-                <tr><td>5</td><td>DouBao non-thinking (web)</td><td>39.1%</td><td>61.2%</td><td>33.6%</td><td>22.6%</td></tr>
-                <tr><td>6</td><td>Qwen3-235B-A22B-2507 (web)</td><td>37.4%</td><td>60.2%</td><td>37.8%</td><td>14.3%</td></tr>
-                <tr><td>7</td><td>Yuanbao (DeepSeek V3) (web)</td><td>30.5%</td><td>53.0%</td><td>24.4%</td><td>14.3%</td></tr>
-                <tr><td>8</td><td>Yuanbao (DeepSeek R1) (web)</td><td>29.8%</td><td>53.7%</td><td>22.7%</td><td>13.1%</td></tr>
-                <tr><td>8</td><td>Yuanbao (T1 thinking) (web)</td><td>29.8%</td><td>59.0%</td><td>18.5%</td><td>11.9%</td></tr>
-                <tr><td>8</td><td>DouBao thinking (web)</td><td>29.8%</td><td>34.3%</td><td>33.6%</td><td>21.4%</td></tr>
-                <tr><td>11</td><td>Kimi K2 (web)</td><td>29.5%</td><td>30.6%</td><td>47.1%</td><td>10.7%</td></tr>
-                <tr><td>12</td><td>DeepSeek R1 (web)</td><td>17.2%</td><td>17.9%</td><td>19.3%</td><td>14.3%</td></tr>
-                <tr><td>13</td><td>Ernie X1 (web)</td><td>16.6%</td><td>23.9%</td><td>15.1%</td><td>10.7%</td></tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <h3 class="title is-4"><i class="fas fa-map-marker-alt"></i> Greater China Models</h3>
-              <div class="table-container">
-                <table class="table is-fullwidth is-striped is-hoverable">
-                  <thead>
-                    <tr class="has-background-dark has-text-white">
-                      <th class="has-text-white nowrap">Ranking</th>
-                      <th class="has-text-white">Model Products / API</th>
-                      <th class="has-text-white">Average Score</th>
-                      <th class="has-text-white">Time-Sensitive</th>
-                      <th class="has-text-white">Simple Historical</th>
-                      <th class="has-text-white">Complex Historical</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="has-background-warning-light"><td><span class="tag is-warning is-medium">🥇 1</span></td><td><strong>DouBao non-thinking (web)</strong></td><td><span class="tag is-success is-medium">54.2%</span></td><td>88.3%</td><td>63.0%</td><td>11.4%</td></tr>
-                    <tr class="has-background-grey-lighter"><td><span class="tag is-light is-medium">🥈 2</span></td><td><strong>Yuanbao (DeepSeek R1) (web)</strong></td><td><span class="tag is-success is-medium">52.5%</span></td><td>84.7%</td><td>58.0%</td><td>14.8%</td></tr>
-                    <tr class="has-background-warning-light"><td><span class="tag is-light is-medium">🥉 3</span></td><td><strong>Grok 4 (web)</strong></td><td><span class="tag is-info is-medium">51.9%</span></td><td>64.9%</td><td>67.0%</td><td>23.9%</td></tr>
-                <tr><td>4</td><td>Yuanbao (T1 thinking) (web)</td><td>50.5%</td><td>82.0%</td><td>58.0%</td><td>11.5%</td></tr>
-                <tr><td>5</td><td>DouBao thinking (web)</td><td>49.0%</td><td>62.2%</td><td>61.0%</td><td>23.9%</td></tr>
-                <tr><td>6</td><td>Yuanbao (DeepSeek V3) (web)</td><td>48.8%</td><td>81.1%</td><td>55.0%</td><td>10.2%</td></tr>
-                <tr><td>7</td><td>Ernie X1 (web)</td><td>40.8%</td><td>62.2%</td><td>49.0%</td><td>11.4%</td></tr>
-                <tr><td>8</td><td>DeepSeek R1 (web)</td><td>40.5%</td><td>56.8%</td><td>51.0%</td><td>13.6%</td></tr>
-                <tr><td>9</td><td>Kimi K2 (web)</td><td>38.3%</td><td>35.1%</td><td>73.0%</td><td>6.8%</td></tr>
-                <tr><td>10</td><td>Gemini 2.5 pro (web)</td><td>36.8%</td><td>51.9%</td><td>46.0%</td><td>12.5%</td></tr>
-                <tr><td>11</td><td>GPT-5-thinking (web)</td><td>23.1%</td><td>35.8%</td><td>30.0%</td><td>3.4%</td></tr>
-                <tr><td>12</td><td>Qwen3-235B-A22B-2507 (web)</td><td>21.9%</td><td>18.1%</td><td>42.0%</td><td>5.7%</td></tr>
-                <tr><td>13</td><td>GPT-5 (web)</td><td>19.3%</td><td>18.0%</td><td>32.0%</td><td>8.0%</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-   -->
   </main>
 
   <!-- Footer -->
   <footer class="footer has-background-white">
     <div class="content has-text-centered">
       <p class="has-text-grey">
-        <strong class="has-text-grey">FinSearchComp Benchmark</strong> © 2024. All rights reserved.
+        <strong class="has-text-grey">FinSearchComp Benchmark</strong> © 2025 All rights reserved.
       </p>
       <p class="has-text-grey-light">
         A comprehensive evaluation framework for financial search capabilities in Large Language Models.

@@ -97,41 +97,33 @@ function initScrollAnimations() {
     });
 }
 
-// Initialize expand buttons for card text
 function initExpandButtons() {
-    const readMoreBtns = document.querySelectorAll('.read-more-btn');
-    
-    if (readMoreBtns.length === 0) {
-        console.log('No read more buttons found on the page');
+  // Handle other card content sections (Overview, Introduction, etc.)
+  const readMoreBtns = document.querySelectorAll('.read-more-btn');
+  readMoreBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const cardContent = this.closest('.card-content');
+      if (!cardContent) {
+        console.error('Could not find parent card-content element');
         return;
-    }
-    
-    readMoreBtns.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const cardContent = this.closest('.card-content');
-            if (!cardContent) {
-                console.error('Could not find parent card-content element');
-                return;
-            }
-            
-            const cardText = cardContent.querySelector('.card-text');
-            if (!cardText) {
-                console.error('Could not find card-text element');
-                return;
-            }
-            
-            if (cardText.style.maxHeight === '150px' || cardText.style.maxHeight === '') {
-                cardText.style.maxHeight = 'none';
-                cardText.style.overflow = 'visible';
-                this.textContent = 'Show Less';
-            } else {
-                cardText.style.maxHeight = '150px';
-                cardText.style.overflow = 'hidden';
-                this.textContent = 'Read More';
-            }
-        });
+      }
+      
+      const cardPreview = cardContent.querySelector('.card-preview');
+      const cardFullContent = cardContent.querySelector('.card-full-content');
+      
+      if (cardPreview && cardFullContent) {
+        if (cardPreview.style.display === 'none') {
+          cardPreview.style.display = 'block';
+          cardFullContent.style.display = 'none';
+          this.textContent = 'Read More';
+        } else {
+          cardPreview.style.display = 'none';
+          cardFullContent.style.display = 'block';
+          this.textContent = 'Read Less';
+        }
+      }
     });
+  });
 }
 
 // Initialize findings carousel
@@ -299,21 +291,20 @@ function renderGlobalChart() {
   // 数据
   const models = [
     'Grok 4 (web)',
-    'GPT-5 (web)',
+    'GPT-5-Thinking (web)',
     'Gemini 2.5 pro (web)',
-    'GPT-5–thinking (web)',
-    'DouBao non–thinking (web)',
-    'Qwen3–235B–A22B–2507 (web)',
-    'Yuanbao (DeepSeek V3) (web)',
-    'Yuanbao (DeepSeek R1) (web)',
-    'Yuanbao (T1 thinking) (web)',
-    'DouBao thinking (web)',
-    'Kimi K2 (web)',
+    'DouBao (web)',
+    'Qwen3-235B-A22B-2507 (web)',
+    'YuanBao (DeepSeek V3) (web)',
+    'YuanBao (HunYuan-T1-Thinking) (web)',
+    'YuanBao (DeepSeek R1) (web)',
+    'DouBao-Thinking (web)',
+    'Kimi k2 (web)',
     'DeepSeek R1 (web)',
-    'Ernie X1 (web)'
+    'ERNIE X1 (web)'
   ];
 
-  const scoresPct = [68.9, 46.8, 42.6, 41.1, 39.1, 37.4, 30.5, 29.8, 29.8, 29.8, 29.5, 17.2, 16.6];
+  const scoresPct = [68.9, 63.9, 42.6, 39.1, 37.4, 30.5, 29.8, 29.8, 29.8, 29.5, 17.2, 16.6];
   const scores = scoresPct.map(v => v / 100);
 
   // 颜色
