@@ -276,7 +276,7 @@ We provide a foundational, end-to-end evaluation infrastructure—an open financ
                     Open-domain financial search is a foundational skill for financial professionals, serving as the critical first step in creating analytical reports, building valuation models, and making investment decisions.
                   </p>
                   <p>
-                    This complex task demands a range of skills, including：<strong>1) retrieving time-sensitive data</strong> <strong>2) finding figures buried in unstructured reports</strong> <strong>3) performing multi-step retrievals with calculation or comparison</strong>.
+                    This complex task demands a range of skills, including: <strong>1) retrieving time-sensitive data</strong>, <strong>2) finding figures buried in unstructured reports</strong>, and <strong>3) performing multi-step retrievals with calculation or comparison</strong>.
                   </p>
                 </div>
                 <div class="card-full-content">
@@ -284,7 +284,7 @@ We provide a foundational, end-to-end evaluation infrastructure—an open financ
                     Open-domain financial search is a foundational skill for financial professionals, serving as the critical first step in creating analytical reports, building valuation models, and making investment decisions.
                   </p>
                   <p>
-                    This complex task demands a range of skills, including：<strong>1) retrieving time-sensitive data</strong> <strong>2) finding figures buried in unstructured reports</strong> <strong>3) performing multi-step retrievals with calculation or comparison</strong>.
+                    This complex task demands a range of skills, including: <strong>1) retrieving time-sensitive data</strong>, <strong>2) finding figures buried in unstructured reports</strong>, and <strong>3) performing multi-step retrievals with calculation or comparison</strong>.
                   </p>
                   <p>
                     All of this must be done while <strong>correctly navigating complex financial conventions</strong> (e.g., specifying Nominal GDP vs. Real GDP).
@@ -334,7 +334,7 @@ We provide a foundational, end-to-end evaluation infrastructure—an open financ
         <div class="box mb-4 data-description-box">
           <h2 class="title is-3 has-text-centered has-text-black mb-4"><span><i class="fa-solid fa-chart-pie"></i> Data Description & Distribution</span></h2>
           <div class="content">
-            <p class="has-text-centered mb-3">Our benchmark consists of three distinct sub-tasks, each designed to evaluate different aspects of financial data retrieval and analysis capabilities.</p>
+            <p class="has-text-left mb-3">Our benchmark consists of three distinct sub-tasks, each designed to evaluate different aspects of financial data retrieval and analysis capabilities.</p>
             <div class="has-text-centered mt-5">
               <figure class="image-container">
                 <img src="assets/image1.png" alt="Data Distribution" class="zoomable-image" style="max-width: 60%; height: auto; margin: 0 auto; border-radius: 8px;" />
@@ -389,7 +389,7 @@ We provide a foundational, end-to-end evaluation infrastructure—an open financ
         <div class="box mb-5 data-construction-box">
           <h2 class="title is-3 has-text-centered has-text-black mb-5"><span><i class="fa-solid fa-database"></i> Data Construction Process</span></h2>
           <div class="content">
-            <p class="has-text-centered mb-4">To accommodate the unique characteristics of different tasks, we employ a variety of question-and-answer construction strategies to ensure both diversity and quality.</p>
+            <p class="has-text-left mb-4">To accommodate the unique characteristics of different tasks, we employ a variety of question-and-answer construction strategies to ensure both diversity and quality.</p>
             
             <!-- Pipeline Image -->
             <div class="has-text-centered mb-5">
@@ -515,8 +515,10 @@ We provide a foundational, end-to-end evaluation infrastructure—an open financ
         <div class="box finding-box mb-5">
           <h3 class="title is-3 has-text-primary mb-4 has-text-centered"><span class="finding-number">2</span> Live Web Search is Essential, Not Optional</h3>
           <div class="content finding-content has-text-centered mb-5">
+            <p class="has-text-left mb-4"> Without search tool, models generally score 0 for time-sensitive tasks and marginal score for historical data search tasks. </p>
             <ul class="is-inline-block has-text-left">
-              <li>Without search tool, models generally score 0 for time-sensitive tasks and marginal score for historical data search tasks</li>
+              <li><strong>Catastrophic Failure on Time-Sensitive Tasks:</strong> Models without live search consistently score zero on real-time data queries. Their static, internal knowledge is fundamentally incapable of providing up-to-date information like current stock prices.</li>
+              <li><strong>Performance Halved on Historical Tasks:</strong> Relying on memory for historical data is also highly unreliable and leads to significant score degradation. Without search, a model's accuracy can be cut in half or more. For example, Gemini's score on simple historical queries plummets from 44.5 to 22.7, and on complex queries from 27.4 to 13.1.</li>
             </ul>
           </div>
           <div class="columns is-multiline">
@@ -537,7 +539,12 @@ We provide a foundational, end-to-end evaluation infrastructure—an open financ
         <div class="box finding-box mb-5">
           <h3 class="title is-3 has-text-primary mb-4 has-text-centered"><span class="finding-number">3</span> Strong Regional Bias Impacts Performance</h3>
           <div class="content finding-content has-text-centered mb-5">
-            <p class="is-inline-block has-text-left">Models from China excel at queries related to the <strong>Greater China</strong> market but lag behind their international counterparts on <strong>Global</strong> market questions.</p>
+            <p class="has-text-left mb-4"> Models from China excel at queries related to the <strong>Greater China</strong> market but lag behind their international counterparts on <strong>Global</strong> market questions.  </p>
+            <ul class="is-inline-block has-text-left">
+              <li><strong>Performance Divide:</strong> U.S.-developed models (e.g., Grok-4) lead on the Global dataset, while Chinese models (e.g., DouBao) excel on the Greater China dataset.</li>
+              <li><strong>Root Cause:</strong> This gap is driven by regional differences in training data, language conventions, and search tool optimization.</li>
+              <li><strong>Key Challenge:</strong> This highlights a major hurdle for creating universally effective AI, as current models lack the cross-regional knowledge required for global generalization.</li>
+            </ul>
           </div>
           <div class="columns is-multiline">
               <figure class="image-container">
