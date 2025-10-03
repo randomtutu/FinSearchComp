@@ -9,8 +9,10 @@ FinSearchComp: Towards a Realistic, Expert-Level Evaluation of Financial Search 
     <img src="https://img.shields.io/badge/FinSearchComp-Project%20Page-green"></a>
   <a href="https://arxiv.org/abs/2509.13160">
     <img src="https://img.shields.io/badge/FinSearchComp-Arxiv-yellow"></a>
+  <a href="https://huggingface.co/datasets/ByteSeedXpert/FinSearchComp">
+    <img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Dataset-orange"></a>
   <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-Apache--2.0-blue"></a>
+    <img src="https://img.shields.io/badge/License-CC--BY--4.0-blue"></a>
 </p>
 </div>
 
