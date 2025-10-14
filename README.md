@@ -27,7 +27,7 @@ FinSearchComp: Towards a Realistic, Expert-Level Evaluation of Financial Search 
 ## 🔔 Introduction
 
 <p align="center">
-  <img src="/docx/assets/performance.png" alt="FinSearchComp Performance" style="width: 800px;"> 
+  <img src="docs/assets/performance.png" alt="FinSearchComp Performance" style="width: 800px;"> 
 </p>
 
 Realistic decision-making tasks require three core skills: finding the right signals, checking and reconciling sources, and turning them into grounded judgments under time pressure. We provide a foundational, end-to-end evaluation infrastructure—an open finance benchmark with tasks for time-sensitive fetching, historical lookup, and multi-source investigation—that measures these skills directly.
