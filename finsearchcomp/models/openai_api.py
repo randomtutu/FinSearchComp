@@ -1,0 +1,65 @@
+import os
+import sys
+import openai
+from tenacity import retry, stop_after_attempt, wait_exponential
+
+# Add project root directory to Python path
+root_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if root_dir not in sys.path:
+    sys.path.append(root_dir)
+
+from config.config_wrapper import get_config_wrapper
+from logger import get_logger
+
+logger = get_logger(__name__)
+
+
+class OpenAIChat:
+    def __init__(
+            self, 
+            model_name,
+            api_version = "2024-03-01-preview",
+            extra_headers = {"X-TT-LOGID": "", "caller": "liniuniu",},
+            extra_body = {"tools": [{"type": "google_search"}]},
+            ):
+        config = get_config_wrapper()
+        base_url = config.config['api']['openai']['api_url']
+        api_key = config.config['api']['openai']['api_key']
+        self.max_tokens = config.config['chat_defaults']['max_tokens']
+        self.model_name = model_name
+        self.extra_headers = extra_headers
+        self.client = openai.AzureOpenAI(
+            azure_endpoint=base_url,
+            api_version=api_version,
+            api_key=api_key,
+        )
+
+    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=4, max=10))
+    def __call__(self, prompts, histories, **kwargs):
+
+        responses = []
+        for prompt, history in zip(prompts, histories):
+            messages = []
+            if history:
+                messages.extend(history)
+            messages.append({"role": "user", "content": prompt})
+
+            logger.debug("Sending request to OpenAI model %s with %d messages", self.model_name, len(messages))
+
+            try:
+                response = self.client.chat.completions.create(
+                    model=self.model_name,
+                    messages=messages,
+                    max_tokens=self.max_tokens,
+                    extra_headers=self.extra_headers,
+                    **kwargs
+                    )
+
+                responses.append(response.choices[0].message.content)
+            except Exception as e:
+                logger.error("OpenAI chat request failed: %s", e)
+                responses.append({"error": str(e)})
+        return responses
+
+def load_model(model_name, **kwargs):
+    return OpenAIChat(model_name, **kwargs)
