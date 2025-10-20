@@ -128,7 +128,11 @@ def main():
     parser.add_argument('--api_key', type=str, help='API key (optional, overrides configuration file)')
     parser.add_argument('--input_file', type=str, required=True, help='Input file path')
     parser.add_argument('--output_path', type=str, default='result/chat-result/chat.json', help='Output file path')
+<<<<<<< HEAD
     parser.add_argument('--limit', type=int, default=10, help='Number of records to process; 0 means all')
+=======
+    parser.add_argument('--limit', type=int, default=0, help='Number of records to process; 0 means all')
+>>>>>>> d20b17d48b542e0fb0752f8145cb5ef1eaa9809a
     args = parser.parse_args()
 
     # Build complete paths

@@ -1,0 +1,33 @@
+# MARS-Bench Configuration File
+
+# API Related Configuration
+# Please fill in the API keys you obtained for each model here.
+# If the api_key for a model is not filled in, that model will not be listed as available when running chat.py.
+api:
+  openai:
+    api_key: "OPENAI_API_KEY"
+    api_url: "OPENAI_URL"
+  deepseek:
+    api_key: "DEEPSEEK_API_KEY"
+    api_url: "DEEPSEEK_URL"
+  anthropic:
+    api_key: "ANTHROPIC_API_KEY"
+    api_url: "ANTHROPIC_URL"
+  gemini:
+    api_key: "GEMINI_API_KEY"
+    api_url: "GEMINI_URL"
+
+# Default Values for General Chat Parameters
+# These parameters may be used or overridden by specific implementations in models/xxx_api.py.
+chat_defaults:
+  max_tokens: 2048
+  temperature: 0.7
+  top_p: 1.0
+  frequency_penalty: 0.0
+  presence_penalty: 0.0
+  max_retries: 3
+  retry_delay: 5
+  max_retry_delay: 60
+
+extra_body:
+  tools: [{"type": "google_search"}]
