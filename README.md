@@ -53,7 +53,7 @@ pip install -r finsearchcomp/requirements.txt
 
 You can quick start like this:
 
-> Dataset note: The complete release lives at `/Users/bytedance/github/FinSearchComp/data/finsearchcomp_data.json` (`data/finsearchcomp_data.json` in the repo). Because some ground-truth steps rely on public AkShare APIs that only cover part of the data, we also provide `/Users/bytedance/github/FinSearchComp/data/finsearchcomp_akshare_version.json` (`data/finsearchcomp_akshare_version.json`). The quick-start commands default to this AkShare-compatible split.
+> Dataset note: The complete release lives at `data/finsearchcomp_data.json`. Because some ground-truth steps rely on public AkShare APIs that only cover part of the data, we also provide `data/finsearchcomp_akshare_version.json`. The quick-start commands default to this AkShare-compatible split.
 
 1️⃣ Configure the `finsearchcomp/config/config.yaml` with your API keys (e.g., Gemini).
 
